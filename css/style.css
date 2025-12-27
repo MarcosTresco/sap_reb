@@ -1,1 +1,132 @@
+/* Container que se ajusta à tela */
+.responsive-container {
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+}
+
+/* Card para o formulário */
+.card-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Grid que vira 1 coluna no celular e 2 no PC */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr; /* Padrão: 1 coluna */
+    gap: 15px;
+}
+.card-maquina {
+    position: relative; /* Garante que o card respeite as camadas */
+    z-index: 1;
+    overflow: hidden; /* Evita que conteúdos internos vazem e bloqueiem cliques */
+}
+.grid-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding-bottom: 50px; /* Dá espaço extra no fundo para o modal não bater no limite da tela */
+}
+
+/* Garante que o link de observações esteja sempre no topo da pilha de cliques */
+.card-maquina a {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+
+@media (min-width: 600px) {
+    .grid-2 {
+        grid-template-columns: 1fr 1fr; /* Acima de 600px: 2 colunas */
+    }
+}
+
+/* Estilo para inputs e selects */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Garante que o padding não quebre a largura */
+}
+
+.btn-block {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Estrutura Principal */
+body { display: flex; margin: 0; padding: 0; min-height: 100vh; }
+
+/* Menu Lateral */
+.sidebar { 
+    width: 250px; 
+    background: #111; 
+    height: 100vh; 
+    position: fixed; 
+    border-right: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #2ecc71;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+.sidebar-menu { list-style: none; padding: 0; margin: 0; }
+
+.sidebar-menu li a {
+    padding: 15px 20px;
+    display: block;
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+    border-bottom: 1px solid #222;
+}
+
+.sidebar-menu li a:hover, .sidebar-menu li a.active {
+    background: #222;
+    color: white;
+    border-left: 4px solid #2ecc71;
+}
+
+/* Área de Conteúdo */
+.main-content { 
+    flex: 1; 
+    margin-left: 250px; /* Largura da sidebar */
+    padding: 25px;
+    background: #1a1a1a;
+}
+
+/* Estilo do Modal (Janela Suspensa) */
+.modal {
+    display: none; position: fixed; z-index: 20000; left: 0; top: 0;
+    width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);
+}
+.modal-content {
+    background-color: #2d2d2d; margin: 10% auto; padding: 25px;
+    border-radius: 15px; width: 80%; max-width: 500px; color: white;
+    border: 1px solid #444; box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+}
+.modal-header { border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 15px; color: #2ecc71; }
+.modal-body b { color: #aaa; font-size: 12px; text-transform: uppercase; }
+.modal-body p { margin-bottom: 20px; line-height: 1.5; }
+
+.btn-modal { padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; margin-right: 10px; text-decoration: none; display: inline-block; }
+.btn-fechar { background: #555; color: white; }
+.btn-whatsapp { background: #25D366; color: white; }
+
 
